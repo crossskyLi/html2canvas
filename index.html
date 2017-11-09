@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html2canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background: #f60;
+        }
+
+        input[type='button'] {
+            background: skyblue;
+            width: 100px;
+            height: 44px;
+            border-radius: 5px;
+            border: none;
+            display: inline-block;
+            margin: 0 auto;
+            outline:none
+        }
+        input[type='button'].active{
+
+        }
+        .btn-list {
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h3>123</h3>
+    <h4>14443</h4>
+</div>
+<div class="btn-list">
+    <input id="btn1" type="button" value="按一下生成图片">
+</div>
+
+</body>
+</html>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/html2canvas/dist/html2canvas.js"></script>
+<script>
+    $(function () {
+        var box = $('.box');
+
+        function getNowFormatDate() {
+            return new Date().getTime()
+        }
+
+        var url = '';
+
+        function makeImage() {
+            html2canvas(box, {
+                onrendered: function (canvas) {
+                    console.log(canvas);
+                    url = canvas.toDataURL();
+                    var triggerDownload = $('<a>')
+                            .attr('href', url)
+                            .attr('download', getNowFormatDate() + '生成图片.png').appendTo('body');
+                    triggerDownload[0].click();
+                    triggerDownload.remove();
+                }
+            });
+        }
+
+        $('#btn1').click(makeImage);
+
+    })
+</script>

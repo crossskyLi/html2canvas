@@ -1,0 +1,24 @@
+{
+  "name": "html2canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "html2canvas": "^0.5.0-beta4",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crossskyLi/html2canvas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crossskyLi/html2canvas/issues"
+  },
+  "homepage": "https://github.com/crossskyLi/html2canvas#readme"
+}
